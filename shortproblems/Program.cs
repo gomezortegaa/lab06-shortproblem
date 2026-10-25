@@ -13,13 +13,40 @@ using System.Formats.Asn1;
 Random rng = new Random(4000);
 int choice = 0;
 
-Console.WriteLine("=== CSCI 1250 Lab 06===");
 
+
+
+//Do While Loop: Do While loops whatever is inside the brackets atleast once, While checking if conditions are true
+//In this case, the Do is the Menu and the excerises, until choice is 5, which ends the program
+do
+{
+
+Console.WriteLine("=== CSCI 1250 Lab 06 ===");
 Console.WriteLine("1. The Grade Checker");
+Console.WriteLine("2. The Dice Game");
+Console.WriteLine("3. The Score Report");
+Console.WriteLine("4. All three");
+Console.WriteLine("5. Quit");
+
+Console.WriteLine("Choose 1 Through 5: ");
+choice = Convert.ToInt32(Console.ReadLine());
+
+while (choice < 1 || choice > 5)
+{
+    Console.WriteLine("Choose a number between 1 to 5");
+    Console.WriteLine("Choose 1 Through 5: ");
+    choice = Convert.ToInt32(Console.ReadLine());
+}
+
 if (choice == 1 || choice == 4)
 {
+    Console.WriteLine("=== Exercise 1: The Grade Checker ===");
     Console.WriteLine("Enter a Score");
     int scorechoice = Convert.ToInt32(Console.ReadLine());
+
+//While Loop: The While Loop checks if inputted values meets specific conditions
+//By prompting the user to input a score, the While loops checks its validity.  if and else if determine the grade the score earns.
+
     while(scorechoice < 0 || scorechoice > 100)
     {
         Console.WriteLine("Score must be between 0 - 100");
@@ -52,11 +79,12 @@ if (choice == 1 || choice == 4)
         
     } 
 
-Console.WriteLine("2. The Dice Table");
+
 // Part 2
 if (choice == 2 || choice == 4)
 {
 
+Console.WriteLine("=== Excercise 2: The Dice Table ===");
 
     int wins = 0;
     int rolls = 0;
@@ -99,17 +127,22 @@ if (choice == 2 || choice == 4)
 
 }
 
-Console.WriteLine("3. The Score Report");
+
 //Part 3
 if (choice == 3 || choice == 4)
 {
-    
+Console.WriteLine("=== Excerise 2: The Score Report ===");
+
 int[] scores = new int[5];
 int total = 0;
 int longest = 0;
 int passing = 0;
 double average = 0;
 
+//For Loop: For Loop runs when conditions are true
+//In this case: the For Loop checks if "i" is less than "scores.Length" (being 5)
+//if true, it runs the block of code, asking for scores and reading user inputs
+//instead of indivdually asking 5 times
 
 for (int i = 0; i < scores.Length; i++)
 {
@@ -118,6 +151,11 @@ for (int i = 0; i < scores.Length; i++)
 }
 
 Console.WriteLine("Scores Entered: " + scores.Length);
+
+//For Each Loop: The ForEach loop runs specific instructions to each value in a array
+//In this case: the foreach picks one value in an array 
+//adds it to a total, checks if its the highest score, and checks ifs a passing grade
+//instead of doing it 1 by 1.
 
 foreach(int score in scores)
     {
@@ -137,8 +175,9 @@ Console.WriteLine("Highest: " + longest);
 Console.WriteLine("Passing: " + passing + " of " + scores.Length);
 }
 
-Console.WriteLine("4. All Three");
-Console.WriteLine("5. Quit");
 
-Console.WriteLine("Choose 1 Through 5: ");
-choice = Convert.ToInt32(Console.ReadLine());
+
+
+}while(choice != 5);
+
+Console.WriteLine("Goodbye!");
