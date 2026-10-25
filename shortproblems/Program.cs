@@ -16,22 +16,6 @@ int choice = 0;
 Console.WriteLine("=== CSCI 1250 Lab 06===");
 
 Console.WriteLine("1. The Grade Checker");
-
-
-Console.WriteLine("2. The Dice Table");
-
-
-Console.WriteLine("3. The Score Report");
-if (choice == 3 || choice == 4)
-{
-    
-}
-Console.WriteLine("4. All Three");
-Console.WriteLine("5. Quit");
-
-Console.WriteLine("Choose 1 Through 5: ");
-choice = Convert.ToInt32(Console.ReadLine());
-
 if (choice == 1 || choice == 4)
 {
     Console.WriteLine("Enter a Score");
@@ -68,6 +52,7 @@ if (choice == 1 || choice == 4)
         
     } 
 
+Console.WriteLine("2. The Dice Table");
 // Part 2
 if (choice == 2 || choice == 4)
 {
@@ -113,3 +98,47 @@ if (choice == 2 || choice == 4)
     Console.WriteLine("You rolled " + rolls + " times and " + "won " + wins);
 
 }
+
+Console.WriteLine("3. The Score Report");
+//Part 3
+if (choice == 3 || choice == 4)
+{
+    
+int[] scores = new int[5];
+int total = 0;
+int longest = 0;
+int passing = 0;
+double average = 0;
+
+
+for (int i = 0; i < scores.Length; i++)
+{
+    Console.WriteLine("Score " + (i + 1) + ": ");
+    scores[i] = Convert.ToInt32(Console.ReadLine());
+}
+
+Console.WriteLine("Scores Entered: " + scores.Length);
+
+foreach(int score in scores)
+    {
+        total = total + score;
+        longest = Math.Max(longest, score);
+        if(score >= 60)
+        {
+            passing++;
+        }
+
+    }
+average = (double)total / scores.Length;
+
+Console.WriteLine("Total: " + total);
+Console.WriteLine("Average: " + average);
+Console.WriteLine("Highest: " + longest);
+Console.WriteLine("Passing: " + passing + " of " + scores.Length);
+}
+
+Console.WriteLine("4. All Three");
+Console.WriteLine("5. Quit");
+
+Console.WriteLine("Choose 1 Through 5: ");
+choice = Convert.ToInt32(Console.ReadLine());
